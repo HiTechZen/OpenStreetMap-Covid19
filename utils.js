@@ -26,7 +26,7 @@ const showModal = (countryName, data) => {
   modalElement.classList.add(isVisible);
 };
 
-document.querySelector('[data-close]').addEventListener('click', function() {
+document.querySelector('[data-close]').addEventListener('click', () => {
   this.parentElement.parentElement.parentElement.classList.remove(isVisible);
 });
 
@@ -46,10 +46,10 @@ document.addEventListener('keyup', e => {
 const {
   format: { GeoJSON },
   layer: { Vector: VectorLayer },
-  Map,
+  Map: OlMap,
   source: { Vector: VectorSource },
   style: { Fill, Stroke, Style, Text },
-  View,
+  View: OlView,
 } = ol;
 
 // Left side: name given by the fetched data
@@ -96,16 +96,16 @@ const getVectorLayer = () => new VectorLayer({
     url: 'https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/examples/data/geojson/countries.geojson',
     format: new GeoJSON(),
   }),
-  style: function (feature) {
+  style: (feature) => {
     style.getText().setText(feature.get('name'));
     return style;
   },
 });
 
-const getMap = (vectorLayer) => new Map({
+const getMap = (vectorLayer) => new OlMap({
   target: 'covid-map',
   layers: [vectorLayer],
-  view: new View({
+  view: new OlView({
     center: [0, 0],
     zoom: 0
   })
@@ -134,7 +134,7 @@ const highlightStyle = new Style({
 const getFeatureOverlay = (map) => new VectorLayer({
   source: new VectorSource(),
   map: map,
-  style: function (feature) {
+  style: (feature) => {
     highlightStyle.getText().setText(feature.get('name'));
     return highlightStyle;
   },

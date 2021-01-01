@@ -12,7 +12,7 @@ fetch('https://disease.sh/v3/covid-19/countries')
     const displayFeatureInfo = (e, isClick = false) => {
       const pixel = map.getEventPixel(e.originalEvent);
 
-      vectorLayer.getFeatures(pixel).then(function (features) {
+      vectorLayer.getFeatures(pixel).then((features) => {
         const feature = features.length ? features[0] : undefined;
         if (feature && isClick) {
           const foundCountry = feature.get('name');
@@ -36,14 +36,14 @@ fetch('https://disease.sh/v3/covid-19/countries')
       });
     };
   
-    map.on('pointermove', function (e) {
+    map.on('pointermove', (e) => {
       if (e.dragging) {
         return;
       }
       displayFeatureInfo(e);
     });
 
-    map.on('click', function(e) {
+    map.on('click', (e) => {
       displayFeatureInfo(e, true);
     });
   })
