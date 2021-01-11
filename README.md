@@ -1,6 +1,10 @@
 # OpenStreetMap with Covid-19 information
 
 ### Usage
+#### Github page
+https://hitechzen.github.io/OpenStreetMap-Covid19/
+
+#### File based
 Open `index.html` in your browser.
 
 Wait for the Covid-19 data from [disease.sh](https://disease.sh/v3/covid-19/countries) to have been fetched.
