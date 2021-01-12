@@ -56,7 +56,9 @@ const {
 // Right side: name given when clicking on map
 const countryMap = {
   'Congo': 'Democratic Republic of the Congo',
+  'S. Korea': 'South Korea',
   'Libyan Arab Jamahiriya': 'Libya',
+  'Syrian Arab Republic': 'Syria',
   'Tanzania': 'United Republic of Tanzania',
   'UAE': 'United Arab Emirates',
   'UK': 'United Kingdom',
