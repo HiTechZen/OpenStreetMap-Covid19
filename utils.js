@@ -27,7 +27,7 @@ const showModal = (countryName, data) => {
 };
 
 document.querySelector('[data-close]').addEventListener('click', () => {
-  this.parentElement.parentElement.parentElement.classList.remove(isVisible);
+  document.querySelector('.modal.is-visible').classList.remove(isVisible);
 });
 
 document.addEventListener('click', e => {
